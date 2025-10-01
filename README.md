@@ -11,15 +11,14 @@ A ideia é manter tudo centralizado, versionado e público para acompanhar minha
 - **Referências:** links, livros e artigos
 
 ## 🔗 Contato
-- [LinkedIn](https://linkedin.com/in/seu-perfil)
-- Email: seuemail@gmail.com
+- [LinkedIn](https://www.linkedin.com/in/bernardo-augusto-996803189/)
+- Email: bernardo.augustot@gmail.com
 
 
 
 
 ## Estrutura de pastas e exemplos de guia
 📂 estudos/
- ├── README.md              # Apresentação geral do repositório
  ├── materias/              # Conceitos teóricos
  │    ├── redes.md
  │    ├── ciberseguranca.md
