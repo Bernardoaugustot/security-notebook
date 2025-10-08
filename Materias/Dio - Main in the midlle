@@ -1,0 +1,39 @@
+# Dio - Main in the Middle
+
+
+### O que é
+Um ataque Man-in-the-Middle (MitM) ocorre quando um invasor intercepta a comunicação entre duas partes — como um usuário e um servidor — sem que elas percebam. O atacante pode espionar, alterar ou redirecionar as informações trocadas, comprometendo senhas, dados bancários e sessões autenticadas. Isso pode acontecer em redes Wi-Fi públicas, conexões HTTP não seguras ou até por ARP spoofing e DNS poisoning. Em resumo: o MitM é o hacker se infiltrando no meio da conversa digital pra ouvir e, se quiser, mexer no que está sendo dito. 🔍💻
+
+▶️ ⭕ ✒️ 👁️
+⭕ https://www.youtube.com/watch?v=NUEqJr9KwOc&embeds_referring_origin=https%3A%2F%2Fweb.dio.me&source_ve_path=MjM4NTE
+
+## Ferramentas 
+Wireshark — analisador de pacotes: captura e exibe tráfego em detalhe, ótimo pra ver se um MitM aconteceu ou para investigação/forense em redes que você controla. 🕵️‍♂️
+
+Ettercap — suíte de interceptação em LAN: facilita filtros e manipulação de tráfego em tempo real (útil em laboratório para demonstrar ARP spoofing). ⚠️
+
+Cain & Abel — ferramenta Windows clássica: oferece sniffing e extração de dados para fins de teste/reconhecimento em ambientes controlados (hoje mais histórica). 🧰
+
+Bettercap — ferramenta moderna e modular para MitM: monitora e manipula tráfego em tempo real, poderosa para simular ataques e testar defesas. 🚀
+
+Máquinas virtuais — ambiente isolado: não fazem MitM, mas são o local seguro ideal para montar laboratórios e repetir ataques sem afetar terceiros. 🖥️
+
+## Capturando dados da Rede
+ ⭕ https://www.youtube.com/embed/2QmKFzO0dpY?controls=0&disablekb=1&enablejsapi=1&fs=0&iv_load_policy=3&modestbranding=1&showinfo=0&rel=0&html5=1&cc_load_policy=0&origin=https%3A%2F%2Fweb.dio.me&widgetid=1&forigin=https%3A%2F%2Fweb.dio.me%2Ftrack%2Fsantander-ciberseguranca-2025%2Fcourse%2Fman-in-the-middle%2Flearning%2Fc6cfd08d-e5f7-4ebf-90ff-56c20652ded0%3Fautoplay%3D1&aoriginsup=1&vf=6
+Cenario:
+Usando - Wireshark
+Maquina alvo: Windows se conecta ao DVWA (Site generico metasploitable)
+
+### Usando o Wireshark
+▶️ Vc precisa estar na mesma rede que o alvo.
+
+▶️ Configure a captura do painel
+
+▶️na barra de filtro precisa ser estudada diretamente
+filtros e modificadores para escutar o alvo.
+
+### Usando Ettercap 
+
+Os mesmos filtros do wiresharp
+
+Ele tbm envena redes e redirecionar os alvos, que ao inves de ir para o servidor oficial vai para nois
